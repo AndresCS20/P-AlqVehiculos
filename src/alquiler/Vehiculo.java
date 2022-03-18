@@ -72,6 +72,15 @@ public class Vehiculo {
 	public void setDiasalquilado(int diasalquilado) {
 		this.diasalquilado = diasalquilado;
 	}
+
+	public Empresa getEmpresaalquilado() {
+		return empresaalquilado;
+	}
+
+	public void setEmpresaalquilado(Empresa empresaalquilado) {
+		this.empresaalquilado = empresaalquilado;
+	}
+	
 	
 	
 }

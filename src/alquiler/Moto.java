@@ -6,7 +6,7 @@ public class Moto extends Vehiculo {
 	//-----|Atributos|-----//
 	
 	private boolean portacaso=false; //True==Si tiene portacaso && False==No tiene portacaso
-	private int motosDisponibles=2;
+	public static int motosDisponibles=2;
 
 
 	
@@ -30,13 +30,15 @@ public class Moto extends Vehiculo {
 		this.portacaso = portacaso;
 	}
 
-	public int getMotosDisponibles() {
+	public static int getMotosDisponibles() {
 		return motosDisponibles;
 	}
 
-	public void setMotosDisponibles(int motosDisponibles) {
-		this.motosDisponibles = motosDisponibles;
-	}	
+	public static void setMotosDisponibles(int motosDisponibles) {
+		Moto.motosDisponibles = motosDisponibles;
+	}
+	
+
 	
 	
 	

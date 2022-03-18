@@ -39,15 +39,27 @@ public class Principal {
 	public static Empresa empresa5=new Empresa("Empresa06","9154533A");
 	public static Empresa empresas[]= {empresa0,empresa1,empresa2,empresa3,empresa4,empresa5};
 	
+	public static ArrayList<Vehiculo> vehiculosSinAlquilar = new ArrayList();
+	
+//	public static ArrayList<Vehiculo> vehiculosSinAlquilar = {coche0,coche1,coche2,coche3,coche4,coche5,coche6,furgoneta0,furgoneta1,furgoneta2,moto0,moto1};
+	public static ArrayList<Vehiculo> vehiculosAlquilados = new ArrayList();
+
 	public static void main(String[] args) {
+		
+
 		int dia=1;
 		int opcionEmpresa=0;
 		int diasAlquiler=0;
-		Vehiculo vehiculoEmpresa = null;
+		int vehiculoEmpresa = 0;
 		boolean subPrograma=true;
 		String texto="";
 		int opcion=0;
-		//Inicio programa
+		//Inicio programa		
+		for (int i=0; i<vehiculos.length; i++) {
+			
+			vehiculosSinAlquilar.add(vehiculos[i]);
+		}
+		
 		while (true) {
 			
 			System.out.println("\t\tDia "+dia);
@@ -55,7 +67,7 @@ public class Principal {
 
 			//Alquiler empresas	
 			while (subPrograma) {
-			
+			opcion=0;
 			System.out.println("\t| Listado de Empresas | ");	
 				
 			for (int i=0; i<empresas.length; i++) {
@@ -81,6 +93,7 @@ public class Principal {
 			
 			switch (opcion-1) {
 			case 0:
+				if (Coche.cochesDisponibles>0) {
 				System.out.println("HAS ELEGIDO COCHE");
 				System.out.println("Durante cuantos dias?");
 				opcion=0;
@@ -89,38 +102,95 @@ public class Principal {
 					opcion = introducirNumero(opcion);
 				}while(opcion<0);
 				diasAlquiler=opcion;
-				System.out.println("Numero de dias alquiler" + diasAlquiler);
-				//Hacer bucle que se recorra los coches y pille el primer coche que este libre
-				for (int i=0; i<coches.length; i++) {
+				System.out.println("Numero de dias alquiler " + diasAlquiler);
+				for (int i=0; i<vehiculos.length; i++) {
 					
-					if (!coches[i].isAlquilado()) {
+					if (vehiculos[i] instanceof Coche && !vehiculos[i].isAlquilado()) {
 						
-						vehiculoEmpresa=coches[i];
-						
+							
+							vehiculoEmpresa=i;
+							break;
+							
 					}
-					//Falta guardar el objeto empresa en vehiculo
-					vehiculoEmpresa.setAlquilado(true);
-					vehiculoEmpresa.setDiasalquilado(diasAlquiler);
+
 				}
+
+					vehiculos[vehiculoEmpresa].setDiasalquilado(diasAlquiler);
+					vehiculos[vehiculoEmpresa].setEmpresaalquilado(empresas[opcionEmpresa]);
+					vehiculosSinAlquilar.remove(vehiculoEmpresa);
+					vehiculosAlquilados.add(vehiculos[vehiculoEmpresa]);
+					System.out.println("VSA: "+vehiculosSinAlquilar.size() +" | VA: "+vehiculosAlquilados.size());
+				
 				Coche.cochesDisponibles--;
-				System.out.println(Coche.cochesDisponibles);
+				System.out.println("Quedan "+Coche.cochesDisponibles+" Furgonetas disponibles");
+				}
+				else System.err.println("ERROR: No hay Motos disponibles para alquilar");
 				break;
 			case 1:
+				if (Furgoneta.furgonetasDisponibles>0) {
 				System.out.println("HAS ELEGIDO FURGONETA");
+				System.out.println("Durante cuantos dias?");
+				opcion=0;
+				do {
+					
+					opcion = introducirNumero(opcion);
+				}while(opcion<0);
+				diasAlquiler=opcion;
+				System.out.println("Numero de dias alquiler " + diasAlquiler);
+				for (int i=0; i<vehiculos.length; i++) {
+					
+					if (vehiculos[i] instanceof Furgoneta && !vehiculos[i].isAlquilado()) {
+							vehiculoEmpresa=i;
+							break;
+					}
+				}
+
+					vehiculos[vehiculoEmpresa].setDiasalquilado(diasAlquiler);//Tal ves malo
+					vehiculos[vehiculoEmpresa].setEmpresaalquilado(empresas[opcionEmpresa]);
+					vehiculosSinAlquilar.remove(vehiculoEmpresa);
+					vehiculosAlquilados.add(vehiculos[vehiculoEmpresa]);
+					System.out.println("VSA: "+vehiculosSinAlquilar.size() +" | VA: "+vehiculosAlquilados.size());
+				
+					Furgoneta.furgonetasDisponibles--;
+				System.out.println("Quedan "+Furgoneta.furgonetasDisponibles+" Furgonetas disponibles");
+			}
+			else System.err.println("ERROR: No hay Motos disponibles para alquilar");
 				break;
 			case 2:
+				if (Moto.motosDisponibles>0) {
 				System.out.println("HAS ELEGIDO MOTO ");
+				System.out.println("Durante cuantos dias?");
+				opcion=0;
+				do {
+					
+					opcion = introducirNumero(opcion);
+				}while(opcion<0);
+				diasAlquiler=opcion;
+				System.out.println("Numero de dias alquiler " + diasAlquiler);
+				for (int i=0; i<vehiculos.length; i++) {
+					
+					if (vehiculos[i] instanceof Moto && !vehiculos[i].isAlquilado()) {						
+							vehiculoEmpresa=i;
+							break;		
+					}
+				}
+
+					vehiculos[vehiculoEmpresa].setDiasalquilado(diasAlquiler);//Tal ves malo
+					vehiculos[vehiculoEmpresa].setEmpresaalquilado(empresas[opcionEmpresa]);
+					vehiculosSinAlquilar.remove(vehiculoEmpresa);
+					vehiculosAlquilados.add(vehiculos[vehiculoEmpresa]);
+					System.out.println("VSA: "+vehiculosSinAlquilar.size() +" | VA: "+vehiculosAlquilados.size());
+				
+					Moto.motosDisponibles--;
+				System.out.println("Quedan "+Moto.motosDisponibles+" Furgonetas disponibles");
+				}
+				else System.err.println("ERROR: No hay Motos disponibles para alquilar");
 				break;
 			default:
 				System.out.println("ERROR: Numero Introducido no coincide con una opcion");
 				break;
 			}
-			
-			
-			
-			
-//			Empresa.alquilerVehiculo(opcion, vehiculos);
-			
+						
 			
 			System.out.println("Pulsa enter para volver a alquilar una vehiculo o introduce 'Parar' para salir del proceso de Alquiler");
 			texto=scString.nextLine();

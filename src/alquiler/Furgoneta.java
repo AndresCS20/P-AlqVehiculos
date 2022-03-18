@@ -6,7 +6,7 @@ public class Furgoneta extends Vehiculo {
 	//-----|Atributos|-----//
 	
 	private double capacidad=0; //Litros
-	private int furgonetasDisponibles=3;
+	public static int furgonetasDisponibles=3;
 
 
 	
@@ -33,14 +33,22 @@ public class Furgoneta extends Vehiculo {
 		this.capacidad = capacidad;
 	}
 
-	public int getFurgonetasDisponibles() {
+
+
+
+	public static int getFurgonetasDisponibles() {
 		return furgonetasDisponibles;
 	}
 
-	public void setFurgonetasDisponibles(int furgonetasDisponibles) {
-		this.furgonetasDisponibles = furgonetasDisponibles;
-	}	
+
+
+
+	public static void setFurgonetasDisponibles(int furgonetasDisponibles) {
+		Furgoneta.furgonetasDisponibles = furgonetasDisponibles;
+	}
 	
+
+
 	
 	
 }
