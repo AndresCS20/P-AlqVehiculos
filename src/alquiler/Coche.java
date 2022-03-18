@@ -13,7 +13,17 @@ public class Coche extends Vehiculo {
 	
 	//-----|Metodos|-----//
 
+	public String mostrarCocheSinAlquilar() {
+		
+		return "Coche [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Numero de Puertas=" + numPuertas + "]";
+		
+	}
 	
+	public String mostrarCocheAlquilados() {
+		
+		return "Coche [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Numero de Puertas=" + numPuertas + " | Nombre Empresa="+this.getEmpresaalquilado().getNombre()+"| Dias Restantes="+this.getDiasalquilado()+"]";
+		
+	}
 	//-----|Constructor|-----//
 
 	public Coche(String matricula, String marca, String modelo, int caballos, int numPuertas) {

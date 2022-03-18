@@ -78,7 +78,7 @@ public class Principal {
 				System.out.println("¿Que empresa quiere alquilar un Vehiculo? Introduce la id de la Empresa o -1 o -2 para mostrar informes.");
 				opcion = introducirNumero(opcion);
 			} while (opcion<-2 || opcion>empresas.length);
-			
+			if (opcion>=0){
 			opcionEmpresa=opcion;
 			opcion=0;
 			do {
@@ -90,7 +90,7 @@ public class Principal {
 				} while (opcion<0 && opcion>2);
 
 			
-			
+		
 			switch (opcion-1) {
 			case 0:
 				if (Coche.cochesDisponibles>0) {
@@ -189,8 +189,52 @@ public class Principal {
 			default:
 				System.out.println("ERROR: Numero Introducido no coincide con una opcion");
 				break;
+				}
 			}
-						
+			if (opcion==-1) {
+				
+				System.out.println("\t\t\t\tPrimera Lista");
+				if (vehiculosSinAlquilar.size()>0) {
+				System.out.println("\t\t\t---| Vehiculos Sin Alquilar |---");
+				for (int i=0; i<vehiculosSinAlquilar.size(); i++) {
+					
+					if (vehiculosSinAlquilar.get(i) instanceof Coche) {
+					System.out.println(((Coche)vehiculosSinAlquilar.get(i)).mostrarCocheSinAlquilar());
+					}
+					
+					if (vehiculosSinAlquilar.get(i) instanceof Furgoneta) {
+					System.out.println(((Furgoneta)vehiculosSinAlquilar.get(i)).mostrarFurgoSinAlquilar());
+					}
+					
+					if (vehiculosSinAlquilar.get(i) instanceof Moto) {
+					System.out.println(((Moto)vehiculosSinAlquilar.get(i)).mostrarMotoSinAlquilar());
+						}
+					}
+				}
+				else System.out.println("\n\t\t\t---| No hay Vehiculos sin Alquilar |---\n");
+				//HAY QUE ADAPTAR LA LISTA SEGUN LA PRACTICA (HAY QUE QUITAR ATRIBUTOS DEL METODO DEL SYSO
+				if (vehiculosAlquilados.size()>0) {
+				System.out.println("\n\t\t\t---| Vehiculos Alquilados |---");
+				for (int i=0; i<vehiculosAlquilados.size(); i++) {
+					
+					if (vehiculosAlquilados.get(i) instanceof Coche) {
+					System.out.println(((Coche)vehiculosAlquilados.get(i)).mostrarCocheAlquilados());
+					}
+					
+//					if (vehiculosSinAlquilar.get(i) instanceof Furgoneta) {
+//					System.out.println(((Furgoneta)vehiculosSinAlquilar.get(i)).mostrarFurgoSinAlquilar());
+//					}
+//					
+//					if (vehiculosSinAlquilar.get(i) instanceof Moto) {
+//					System.out.println(((Moto)vehiculosSinAlquilar.get(i)).mostrarMotoSinAlquilar());
+//						}
+					}
+				}
+				else System.out.println("\n\t\t\t---| No hay Vehiculos Alquilados |---\n");
+
+				
+				
+			}
 			
 			System.out.println("Pulsa enter para volver a alquilar una vehiculo o introduce 'Parar' para salir del proceso de Alquiler");
 			texto=scString.nextLine();

@@ -13,6 +13,14 @@ public class Furgoneta extends Vehiculo {
 	//-----|Metodos|-----//
 
 	
+	public String mostrarFurgoSinAlquilar() {
+		
+		return "Furgoneta [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Capacidad=" + capacidad + "]";
+		
+	}
+
+	
+	
 	//-----|Constructor|-----//
 
 	public Furgoneta(String matricula, String marca, String modelo, int caballos,double capacidad) {
@@ -46,9 +54,6 @@ public class Furgoneta extends Vehiculo {
 	public static void setFurgonetasDisponibles(int furgonetasDisponibles) {
 		Furgoneta.furgonetasDisponibles = furgonetasDisponibles;
 	}
-	
-
-
 	
 	
 }
