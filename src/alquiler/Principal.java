@@ -174,7 +174,7 @@ public class Principal {
 							break;		
 					}
 				}
-
+//Puede que haya error aqui con el array en motos
 					vehiculos[vehiculoEmpresa].setDiasalquilado(diasAlquiler);//Tal ves malo
 					vehiculos[vehiculoEmpresa].setEmpresaalquilado(empresas[opcionEmpresa]);
 					vehiculosSinAlquilar.remove(vehiculoEmpresa);
@@ -203,7 +203,7 @@ public class Principal {
 					}
 					
 					if (vehiculosSinAlquilar.get(i) instanceof Furgoneta) {
-					System.out.println(((Furgoneta)vehiculosSinAlquilar.get(i)).mostrarFurgoSinAlquilar());
+					System.out.println(((Furgoneta)vehiculosSinAlquilar.get(i)).mostrarFurgonetaSinAlquilar());
 					}
 					
 					if (vehiculosSinAlquilar.get(i) instanceof Moto) {
@@ -221,13 +221,13 @@ public class Principal {
 					System.out.println(((Coche)vehiculosAlquilados.get(i)).mostrarCocheAlquilados());
 					}
 					
-//					if (vehiculosSinAlquilar.get(i) instanceof Furgoneta) {
-//					System.out.println(((Furgoneta)vehiculosSinAlquilar.get(i)).mostrarFurgoSinAlquilar());
-//					}
-//					
-//					if (vehiculosSinAlquilar.get(i) instanceof Moto) {
-//					System.out.println(((Moto)vehiculosSinAlquilar.get(i)).mostrarMotoSinAlquilar());
-//						}
+					if (vehiculosSinAlquilar.get(i) instanceof Furgoneta) {
+					System.out.println(((Furgoneta)vehiculosAlquilados.get(i)).mostrarFurgonetaAlquilados());
+					}
+					
+					if (vehiculosSinAlquilar.get(i) instanceof Moto) {
+					System.out.println(((Moto)vehiculosAlquilados.get(i)).mostrarMotoAlquilados());
+						}
 					}
 				}
 				else System.out.println("\n\t\t\t---| No hay Vehiculos Alquilados |---\n");

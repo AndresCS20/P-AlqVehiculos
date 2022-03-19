@@ -13,12 +13,15 @@ public class Furgoneta extends Vehiculo {
 	//-----|Metodos|-----//
 
 	
-	public String mostrarFurgoSinAlquilar() {
+	public String mostrarFurgonetaSinAlquilar() {
 		
-		return "Furgoneta [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Capacidad=" + capacidad + "]";
-		
+		return "Furgoneta " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula();
 	}
-
+	
+	public String mostrarFurgonetaAlquilados() {
+		
+		return "Furgoneta  " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula() + " " + this.getEmpresaalquilado().getNombre() + " " + this.getDiasalquilado() + " dias restantes";
+	}
 	
 	
 	//-----|Constructor|-----//

@@ -14,8 +14,12 @@ public class Moto extends Vehiculo {
 
 	public String mostrarMotoSinAlquilar() {
 		
-		return "Moto [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Portacaso=" + portacaso + "]";
+		return "Moto  " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula();
+	}
+	
+	public String mostrarMotoAlquilados() {
 		
+		return "Moto  " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula() + " " + this.getEmpresaalquilado().getNombre() + " " + this.getDiasalquilado() + " dias restantes";
 	}
 	
 	//-----|Constructor|-----//

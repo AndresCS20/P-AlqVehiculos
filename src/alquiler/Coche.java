@@ -15,14 +15,12 @@ public class Coche extends Vehiculo {
 
 	public String mostrarCocheSinAlquilar() {
 		
-		return "Coche [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Numero de Puertas=" + numPuertas + "]";
-		
+		return "Coche " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula();
 	}
 	
 	public String mostrarCocheAlquilados() {
 		
-		return "Coche [Matricula="+this.getMatricula()+" | Marca="+this.getMarca()+" | Modelo="+this.getModelo()+" | Caballos="+this.getCaballos()+" | Numero de Puertas=" + numPuertas + " | Nombre Empresa="+this.getEmpresaalquilado().getNombre()+"| Dias Restantes="+this.getDiasalquilado()+"]";
-		
+		return "Coche " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula() + " " + this.getEmpresaalquilado().getNombre() + " " + this.getDiasalquilado() + " dias restantes";
 	}
 	//-----|Constructor|-----//
 
