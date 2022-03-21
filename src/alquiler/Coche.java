@@ -13,6 +13,11 @@ public class Coche extends Vehiculo {
 	
 	//-----|Metodos|-----//
 
+	@Override
+	public String toString() {
+		return "Coche " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula() + " " + this.getEmpresaalquilado().getNombre() + " " + this.getDiasalquilado() + " dias restantes";
+	}
+
 	public String mostrarCocheSinAlquilar() {
 		
 		return "Coche " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula();

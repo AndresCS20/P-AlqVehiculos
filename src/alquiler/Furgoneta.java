@@ -13,6 +13,12 @@ public class Furgoneta extends Vehiculo {
 	//-----|Metodos|-----//
 
 	
+	@Override
+	public String toString() {
+		return "Furgoneta  " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula() + " " + this.getEmpresaalquilado().getNombre() + " " + this.getDiasalquilado() + " dias restantes";
+	}
+	
+	
 	public String mostrarFurgonetaSinAlquilar() {
 		
 		return "Furgoneta " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula();

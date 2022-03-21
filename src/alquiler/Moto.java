@@ -12,6 +12,11 @@ public class Moto extends Vehiculo {
 	
 	//-----|Metodos|-----//
 
+	@Override
+	public String toString() {
+		return "Moto  " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula() + " " + this.getEmpresaalquilado().getNombre() + " " + this.getDiasalquilado() + " dias restantes";
+	}
+	
 	public String mostrarMotoSinAlquilar() {
 		
 		return "Moto  " + this.getMarca() + " "+this.getModelo() + " "+ this.getMatricula();
